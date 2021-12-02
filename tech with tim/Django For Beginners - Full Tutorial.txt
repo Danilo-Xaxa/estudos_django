@@ -1,0 +1,33 @@
+FULL-STACK framework?
+
+pip install Django
+
+set a new environment: django-admin startproject my_site
+
+manage.py and urls.py are important
+
+like a flask run (used to test): python manage.py runserver <optional port number>
+
+to create the app: python manage.py startapp my_app
+
+views.py store different views for the app (web pages)
+
+on views.py:
+from django.http import HttpResponse
+def index(response):
+    return HttpResponse('hello world!')
+
+create urls.py inside main (paths to different web pages)
+
+on main/urls.py:
+from django.urls import path
+from . import views
+urlpatterns = [
+    path("", views.index, name="index")
+]
+
+on my_site/urls.py:
+from django.urls import path, include
+urlpatterns = [
+    path('', include("main.urls"))
+]
