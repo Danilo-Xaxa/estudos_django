@@ -59,3 +59,15 @@ def index(response, id):  # não seria request?
     ls = ToDoList.objects.get(id=id)
     item = ls.item_set.get(id=1)
     return HttpResponse(f'<h1> {ls.name} </h1> <br> <h2> {item.text} </h2>')
+
+admin dashboard:
+
+you have to create a log in account
+
+to acess /admin, you have to log in
+
+to create an account: python manage.py createsuperuser, then put a name, e-mail adress and password
+
+you need to add the database you've created to the dashboard via admin.py: 
+from .models import ToDoList
+admin.site.register(ToDoList)
