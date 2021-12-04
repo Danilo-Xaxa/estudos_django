@@ -1,23 +1,25 @@
-FULL-STACK framework?
+it's a FULL-STACK web framework
 
-pip install Django
+pip install Django (or django)
 
-set a new environment: django-admin startproject my_site
+set a new project (environment): django-admin startproject my_site
 
-manage.py and urls.py are important
+manage.py and urls.py are really important initially
 
-like a flask run (used to test): python manage.py runserver <optional port number>
+used to test from the beggining (like a flask run): python manage.py runserver <optional port number>
 
-to create the app: python manage.py startapp my_app
+to create an app: python manage.py startapp my_app
+
+now we will modify some files in order to make the app work properly
 
 views.py store different views for the app (web pages)
 
 on views.py:
 from django.http import HttpResponse
-def index(response):
-    return HttpResponse('hello world!')
+def index(request):
+    return HttpResponse('hello world!')  # accepts text or html
 
-create urls.py inside main (paths to different web pages)
+create urls.py inside main, they will contain paths to the different web pages
 
 on main/urls.py:
 from django.urls import path
@@ -26,19 +28,25 @@ urlpatterns = [
     path("", views.index, name="index")
 ]
 
+after that, we have to link the app to the project
+
 on my_site/urls.py:
 from django.urls import path, include
 urlpatterns = [
     path('', include("main.urls"))
 ]
 
-In order to set up a database, we need to append the name of the app in settings.INSTALLED_APPS, but with a specific syntax: "principal.apps.PrincipalConfig"
+here we have specified a base path (it's empty, but it could be 'home/') that is linked to main.urls. anything after that will be handled by the main/urls.py
+
+in order to set up a database, we need to append the name of the app in settings.INSTALLED_APPS, but with a specific syntax: "principal.apps.PrincipalConfig"
 
 to make it work: python manage.py migrate
 
-then, you will create classes within models.py
+then, you will create classes within models.py. the attributes will be class attributes instead of instance attributes. it's important to add __str__ methods too
 
 python manage.py makemigrations principal
+
+makemigrations make new migrations, migrate apply them
 
 then python manage.py migrate, again
 
@@ -46,28 +54,29 @@ making migrations is like adding something to the staging area in git
 
 to open a django interactive shell: python manage.py shell
 
+you can manipulate the models and its data from the shell
+
+check 'manage shell'.png
+
 now you can see dynamic pages being shown just by typing something in the url bar
 
 to do this, you will need to set path("<int:id>", views.index, name="index") inside principal.urls.urlpatterns and 
-def index(response, id):    
+def index(request, id):    
     ls = ToDoList.objects.get(id=id)
     return HttpResponse(f'<h1> {ls.name} </h1>')
 inside views.py
 
 we can also do:
-def index(response, id):  # não seria request? 
+def index(request, id):
     ls = ToDoList.objects.get(id=id)
     item = ls.item_set.get(id=1)
     return HttpResponse(f'<h1> {ls.name} </h1> <br> <h2> {item.text} </h2>')
 
-admin dashboard:
+for the admin dashboard you first have to create a log in account
 
-you have to create a log in account
-
-to acess /admin, you have to log in
-
-to create an account: python manage.py createsuperuser, then put a name, e-mail adress and password
+to create an account: python manage.py createsuperuser, then choose a name, e-mail address and password
 
 you need to add the database you've created to the dashboard via admin.py: 
-from .models import ToDoList
+from .models import ToDoList, Item
 admin.site.register(ToDoList)
+admin.site.register(Item)

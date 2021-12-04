@@ -9,4 +9,3 @@ venv
 settings.TIME_ZONE = 'America/Recife' (ou é 'Americas/Recife')
 
 on_delete=models.CASCADE significa que ao apagar a question, as choices também são apagadas
-
