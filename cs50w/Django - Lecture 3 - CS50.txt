@@ -13,5 +13,3 @@ the new app name will be always in the url bar
 return render(request, "hello/index.html")
 
 templates folder
-
-28:46 nesse e 20:40 no do tim, 23:52 no diogo defante
