@@ -1,0 +1,5 @@
+tutorials are good, but then you have to take off the training wheels and build projects by yourself and the docs (and stack overflow)
+
+build to-do apps (and add search and authentication)
+
+django is a pretty heavy framework. sometimes we get confused at even importing things
