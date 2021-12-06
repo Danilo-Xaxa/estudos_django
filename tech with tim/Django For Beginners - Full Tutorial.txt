@@ -80,3 +80,15 @@ you need to add the database you've created to the dashboard via admin.py:
 from .models import ToDoList, Item
 admin.site.register(ToDoList)
 admin.site.register(Item)
+
+templates are html files that will be dynamically changed using the django template language: {% %} and {{ }}. you call a template rendering from the view functions using data from the models
+
+templates connect the back-end and the front-end
+
+you need to create a templates/ directory inside my_app/ directory and then a my_app/ directory within it
+
+template inheritance: {% extends 'my_app/layout.html' %}
+
+return render() instead of return HttpResponse()
+
+render(request, "my_app/layout.html", {})
