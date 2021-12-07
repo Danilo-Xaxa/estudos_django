@@ -3,7 +3,13 @@
 {% block titulo %} To-do list {% endblock %}
 
 {% block corpo %}
-<h1>Esse é o todo_list/</h1>
-<p>Olha a ls: {{ todo_list_name }}</p>
-<p>Olha o primeiro item: {{ first_item_text }}</p>
+
+<h1>{{ todo_list.name }}</h1>
+
+<ul>
+  {% for item in items %}
+    <li>Item {{ forloop.counter }}: {{ item }}</li>
+  {% endfor %}
+</ul>
+
 {% endblock %}

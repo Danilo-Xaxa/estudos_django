@@ -6,6 +6,7 @@ def index(request):
     return render(request, "principal/index.html", {})
 
 def todo_list(request, id):
-    todo_ls = ToDoList.objects.get(id=id)
-    first_item = todo_ls.item_set.get(id=1)
-    return render(request, "principal/todo_list.html", {"todo_list_name": todo_ls.name, "first_item_text": first_item.text})
+    todo_list = ToDoList.objects.get(id=id)
+    items = todo_list.item_set.all()
+    variaveis = {"todo_list": todo_list, "items": items}
+    return render(request, "principal/todo_list.html", variaveis)

@@ -92,3 +92,6 @@ template inheritance: {% extends 'my_app/layout.html' %}
 return render() instead of return HttpResponse()
 
 render(request, "my_app/layout.html", {})
+
+in a for loop inside {% %}, use foo.item_set.all instead of foo.item_set.all()
+
