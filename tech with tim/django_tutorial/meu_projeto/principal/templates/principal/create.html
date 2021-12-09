@@ -4,8 +4,10 @@
 
 {% block corpo %}
 <p>Create</p>
-<form action="create/" method="post">
-    {{ form }}
+<form action="/create/" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
     <button type="submit" name="save">Create</button>
 </form>
+{{ x }}
 {% endblock %}

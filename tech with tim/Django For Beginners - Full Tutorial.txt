@@ -115,3 +115,15 @@ you also have to write create.html and reference it in the return of the view
 so basically, django forms can be automatically generated
 
 form.as_p, .as_ul, as_table...
+
+add {% csrf_token %} inside the form tag
+
+get methods writes text in the url after ?
+
+podemos fazer o seguinte:
+if request.method == 'POST':
+    form = CreateNewList(request.POST)
+
+exemplo de request.POST: <QueryDict: {'csrfmiddlewaretoken': ['CBPNtdFryvc8tIJv0s8X2rWo70IQvDwxbVkWo1TfHm0i3tFTZCNNizRk8dGXMhpn'], 'name': ['foo'], 'check': ['on'], 'save': ['']}>
+
+you can create new models with the form, check out the code at this commit
