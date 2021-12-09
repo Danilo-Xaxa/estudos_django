@@ -31,7 +31,3 @@ urlpatterns = [
 14 - Django REST Framework: you could build an api with django on the back-end and a js framework on the front-end, but you really should learn django rest
 
 15 - Deployment: from localhost to www! heroku, linode, aws...
-
-
-
-O Charfield será apenas uma entrada de uma linha, mas o TextField será uma multilinha redimensionável. O TextField faz sentido quando você implementa principalmente visualizações de classe genéricas. Funciona muito bem para um campo de descrição ou algo semelhante.

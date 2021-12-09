@@ -1,0 +1,11 @@
+{% extends "principal/layout.html" %}
+
+{% block titulo %} Create {% endblock %}
+
+{% block corpo %}
+<p>Create</p>
+<form action="create/" method="post">
+    {{ form }}
+    <button type="submit" name="save">Create</button>
+</form>
+{% endblock %}

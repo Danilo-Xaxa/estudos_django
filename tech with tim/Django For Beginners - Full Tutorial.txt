@@ -95,3 +95,23 @@ render(request, "my_app/layout.html", {})
 
 in a for loop inside {% %}, use foo.item_set.all instead of foo.item_set.all()
 
+to work with forms, you have to use the {{ form }} variable inside your <form> tag. you will create a form class and the instantiate it
+
+check out the form.png image
+
+create forms.py inside your app directory:
+from django import forms
+class CreateNewList(forms.Form):
+    name = forms.CharField(label="Name", max_length=200)
+    check = forms.BooleanField()
+
+and them do an import at the views.py file:
+from .forms import CreateNewList
+
+finally, you will pass an intance of the class as the form variable: {"form": CreateNewList()}
+
+you also have to write create.html and reference it in the return of the view
+
+so basically, django forms can be automatically generated
+
+form.as_p, .as_ul, as_table...
