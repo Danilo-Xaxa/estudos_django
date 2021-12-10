@@ -1,4 +1,5 @@
 from django.http.response import HttpResponse, HttpResponseRedirect
+from django.http.response import HttpResponseRedirectBase
 from django.shortcuts import render
 from .models import ToDoList, Item
 from .forms import CreateNewList
@@ -7,11 +8,30 @@ from .forms import CreateNewList
 def index(request):
     return render(request, "principal/index.html", {})
 
+
 def todo_list(request, id):
-    todo_list = ToDoList.objects.get(id=id)
-    items = todo_list.item_set.all()
-    variaveis = {"todo_list": todo_list, "items": items}
-    return render(request, "principal/todo_list.html", variaveis)
+    ls = ToDoList.objects.get(id=id)
+ 
+    if request.method == "POST":
+        if request.POST.get("save"):
+            for item in ls.item_set.all():
+                if request.POST.get("c" + str(item.id)) == "clicked":
+                    item.complete = True
+                else:
+                    item.complete = False
+    
+                item.save()
+    
+        elif request.POST.get("newItem"):
+            txt = request.POST.get("new")
+    
+            if len(txt) > 2:
+                ls.item_set.create(text=txt, complete=False)
+            else:
+                print("invalid")
+    
+    return render(request, "principal/todo_list.html", {"todo_list":ls})
+
 
 def create(request):
     if request.method == 'POST':
