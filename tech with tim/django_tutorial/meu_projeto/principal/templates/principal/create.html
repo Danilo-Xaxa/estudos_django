@@ -1,13 +1,14 @@
 {% extends "principal/layout.html" %}
 
-{% block titulo %} Create {% endblock %}
-
+{% block titulo %} Create New List {% endblock %}
 {% block corpo %}
-<p>Create</p>
-<form action="/create/" method="post">
-    {% csrf_token %}
-    {{ form.as_p }}
-    <button type="submit" name="save">Create</button>
-</form>
-{{ x }}
+     <h3>Create Page</h3>
+     <form method="post" action="/create/" class="form-group">
+         {% csrf_token %}
+         <div class="input-group mb-3">
+             <div class="input-group-prepend">
+                 <button type="submit" name="save" class="btn btn-success">Create New</button>
+             </div>{{form.name}}
+         </div>
+    </form>
 {% endblock %}
