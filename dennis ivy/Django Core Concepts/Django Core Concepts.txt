@@ -1,7 +1,7 @@
 1 - Apps: apps -> models, views, templates and urls
 
 2 - Views: function based vies vs class based views (functions first, they are more simple and used by the docs).
-views vs templates = views are functions/classes that are written in views.py and bound to a path/url. when they are called (automatically by django), they display the templates with the data from the models
+views vs templates = views are functions/classes that are written in views.py and bound to a path/url. when they are called (automatically by django), they usually display the templates with the data from the models, but that's totally up to the programmer to decide what the view function executes when called
 
 3 - URL Routing: 
 urlpatterns = [
