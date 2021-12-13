@@ -131,3 +131,7 @@ you can create new models with the form, check out the code at this commit as an
 you better pay attention at the action attribute in <form>, in this example it is '/create/' instead of 'create/'
 
 to add new items via forms, just do the things in this commit
+
+user registration and sign up page:
+
+create a new app just for registering
