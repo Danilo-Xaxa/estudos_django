@@ -134,4 +134,6 @@ to add new items via forms, just do the things in this commit
 
 user registration and sign up page:
 
-create a new app just for registering
+create a new app just for registering (in this case, we have one called principal and the new one is gonna be named "register")
+
+you can also get the register app and use in other django projects
