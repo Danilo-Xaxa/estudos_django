@@ -46,11 +46,11 @@ then, you will create classes within models.py. the attributes will be class att
 
 python manage.py makemigrations principal
 
-makemigrations make new migrations, migrate apply them
-
 then python manage.py migrate, again
 
-making migrations is like adding something to the staging area in git
+makemigrations make new migrations, migrate apply them
+
+making migrations is like adding something to the staging area in git, migrate is like a commit
 
 to open a django interactive shell: python manage.py shell
 
