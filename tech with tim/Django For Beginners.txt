@@ -140,3 +140,11 @@ you can also get the register app and use in other django projects
 
 python manage.py startapp register
 
+link register to meu_projeto/urls.py:
+path("register/", v.register, name="register")
+
+create a view for register
+
+create a template for register inside of inside/templates/register
+
+
