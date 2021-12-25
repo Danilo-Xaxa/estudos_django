@@ -1,0 +1,16 @@
+{% extends 'principal/layout.html' %}
+
+{% block titulo %} Entrar {% endblock %}
+
+{% block corpo %}
+
+{% load crispy_forms_tags %}
+
+<form method="post" class="form-group">
+    {% csrf_token %}
+    {{ form | crispy }}
+    <p>Não tem uma conta? Crie uma aqui <a href="/register"></a></p>
+    <button type="submtit" class="btn btn-success">Entrar</button>
+</form>
+
+{% endblock %}
