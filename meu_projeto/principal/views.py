@@ -59,6 +59,3 @@ def create(request):
 
 def view(request):
     return render(request, "principal/view.html", {"user": request.user})
-
-def home(request):
-    return redirect("/")
