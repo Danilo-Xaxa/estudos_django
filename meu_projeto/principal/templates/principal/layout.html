@@ -13,14 +13,21 @@
     <div class="sidenav">
 		<a href="/create">Criar</a>
 		<a href="/1">Ver</a>
+		{% if user.is_authenticated %}
+		<a href="/logout">Sair</a>
+		{% endif %}
 	</div>
 
 	<div id="content" name="content" class="main">
 		<div class="row justify-content-center">
 			<div class="col-8">
 				<hr class="mt-0 mb-4">
-				{% block corpo %}
-				{% endblock %}
+				{% if user.is_authenticated %}
+					{% block corpo %}
+					{% endblock %}
+				{% else %}
+					<h1>Entre <a href="/login">aqui</a></h1>
+				{% endif %}
 			</div>
 		</div>
 	</div>
