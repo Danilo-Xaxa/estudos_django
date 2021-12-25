@@ -1,0 +1,9 @@
+{% extends "principal/layout.html" %}
+
+{% block titulo %} Ver {% endblock %}
+ 
+{% block corpo %}
+    {% for td in user.todolist.all %}
+        <p><a href="/{{ td.id }}">{{ td.name }}</a></p>
+    {% endfor %}
+{% endblock %}

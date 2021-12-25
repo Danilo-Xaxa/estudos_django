@@ -12,7 +12,7 @@
 <body>
     <div class="sidenav">
 		<a href="/create">Criar</a>
-		<a href="/1">Ver</a>
+		<a href="/view">Ver</a>
 	</div>
 
 	<div id="content" name="content" class="main">
@@ -23,7 +23,7 @@
                 <form method="post" class="form-group">
                     {% csrf_token %}
                     {{ form | crispy }}
-                    <p>Não tem uma conta? Crie uma aqui <a href="/register"></a></p>
+                    <p>Não tem uma conta? Crie uma <a href="/register">aqui</a></p>
                     <button type="submtit" class="btn btn-success">Entrar</button>
                 </form>
 			</div>
